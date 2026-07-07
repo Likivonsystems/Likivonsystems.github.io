@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Likivon Systems | Engineering Future Solutions</title>
+<meta name="description" content="Likivon Systems - Software Engineering firm based in Dar es Salaam, Tanzania. Enterprise Systems, Mobile Apps, AI/ML and Cybersecurity solutions.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Likivon Systems logo">LIKIVON<span style="color:var(--muted); font-weight:500;">.sys</span></a>
+    <button class="burger" id="burger" aria-label="Fungua menu">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="services.html" data-page="services.html">Services</a>
+      <a href="portfolio.html" data-page="portfolio.html">Portfolio</a>
+      <a href="about.html" data-page="about.html">About</a>
+      <a href="contact.html" data-page="contact.html">Contact</a>
+      <a href="contact.html" class="cta">Start a Project</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" style="padding:90px 0 70px;">
+    <div style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;" class="hero-grid-inline">
+      <div data-reveal="1">
+        <div class="eyebrow"><span class="pulse"></span>SYSTEM STATUS: OPERATIONAL — DAR ES SALAAM, TZ</div>
+        <h1>Engineering the <span class="accent">Digital Future</span> of East Africa</h1>
+        <p class="lede">Likivon Systems delivers high-performance software — enterprise-grade backends, secure mobile experiences, AI-powered tools, and defensible infrastructure. We turn complex problems into elegant, working systems.</p>
+        <div class="cta-row">
+          <a href="portfolio.html" class="btn btn-primary">View Portfolio →</a>
+          <a href="contact.html" class="btn btn-ghost">Start a Project</a>
+        </div>
+      </div>
+      <div class="terminal" data-reveal="2">
+        <div class="terminal-bar">
+          <span></span><span></span><span></span>
+          <span class="terminal-title">likivon@systems: ~/deploy</span>
+        </div>
+        <div class="terminal-body" id="termBody"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-head" data-reveal>
+      <div class="section-tag">// what we build</div>
+      <h2>Premium Tech Solutions</h2>
+      <p class="section-sub">We don't just write code — we engineer outcomes.</p>
+    </div>
+    <div class="services-grid" data-reveal>
+      <div class="service">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M8 4v5"/></svg>
+        <h3>Enterprise Systems</h3>
+        <p>Complex ERPs and automated business workflows built on scalable backends.</p>
+        <span class="stack">Laravel · FastAPI</span>
+      </div>
+      <div class="service">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg>
+        <h3>Mobile Applications</h3>
+        <p>Seamless Android experiences people enjoy interacting with every day.</p>
+        <span class="stack">Java · Flutter</span>
+      </div>
+      <div class="service">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M12 7v4M12 11l-5 6M12 11l5 6"/></svg>
+        <h3>AI &amp; Machine Learning</h3>
+        <p>Chatbots, predictive models and automation that give your business an edge.</p>
+        <span class="stack">Python · LLMs</span>
+      </div>
+      <div class="service">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        <h3>Cyber Defense</h3>
+        <p>Securing your digital borders with advanced auth and forensic audits.</p>
+        <span class="stack">JWT · Audits</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-head" data-reveal>
+      <div class="section-tag">// recent deployments</div>
+      <h2>Our Recent Projects</h2>
+      <p class="section-sub">A sample of systems we've shipped for clients across Tanzania.</p>
+    </div>
+    <div class="proj-grid" data-reveal>
+      <div class="proj-card">
+        <div class="proj-window">
+          <span class="tag-status">● live</span>
+          <div class="row"><b>service:</b> hotel-mgmt</div>
+          <div class="row"><b>module:</b> orders, billing</div>
+          <div class="row"><b>uptime:</b> 99.8%</div>
+        </div>
+        <div class="proj-body">
+          <h3>Delicious Food</h3>
+          <p>Hotel &amp; restaurant management system covering orders, billing and inventory.</p>
+          <div class="proj-tags"><span>PHP</span><span>MySQL</span></div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-window">
+          <span class="tag-status">● live</span>
+          <div class="row"><b>service:</b> naps-payments</div>
+          <div class="row"><b>module:</b> citizen-billing</div>
+          <div class="row"><b>uptime:</b> 99.9%</div>
+        </div>
+        <div class="proj-body">
+          <h3>HIMS</h3>
+          <p>Naps Payment Information Management System built with Laravel for citizen payments.</p>
+          <div class="proj-tags"><span>Laravel</span><span>MySQL</span></div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-window">
+          <span class="tag-status">● live</span>
+          <div class="row"><b>service:</b> naps-citizen</div>
+          <div class="row"><b>auth:</b> JWT secured</div>
+          <div class="row"><b>uptime:</b> 99.9%</div>
+        </div>
+        <div class="proj-body">
+          <h3>Naps Citizen System</h3>
+          <p>Secure citizen-facing system built with PHP and JWT authentication.</p>
+          <div class="proj-tags"><span>PHP</span><span>JWT</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:36px;" data-reveal>
+      <a href="portfolio.html" class="btn btn-ghost">See full portfolio →</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta-banner" data-reveal>
+      <div>
+        <h3>Have a system to build?</h3>
+        <p>Tell us about your project — we usually reply within a day.</p>
+      </div>
+      <a href="contact.html" class="btn btn-primary">Get in touch →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="Likivon logo">LIKIVON SYSTEMS</a>
+    <div class="foot-links">
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="copy">© 2026 Likivon Systems</div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Likivon Systems</title>
+<meta name="description" content="Recent systems and applications built by Likivon Systems for clients across Tanzania.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Likivon Systems logo">LIKIVON<span style="color:var(--muted); font-weight:500;">.sys</span></a>
+    <button class="burger" id="burger" aria-label="Fungua menu">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="services.html" data-page="services.html">Services</a>
+      <a href="portfolio.html" data-page="portfolio.html">Portfolio</a>
+      <a href="about.html" data-page="about.html">About</a>
+      <a href="contact.html" data-page="contact.html">Contact</a>
+      <a href="contact.html" class="cta">Start a Project</a>
+    </div>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <div class="wrap" data-reveal>
+    <div class="eyebrow"><span class="pulse"></span>// PORTFOLIO</div>
+    <h1>Systems We've <span class="accent">Shipped</span></h1>
+    <p class="lede">Real projects, running in production, for real clients across Tanzania.</p>
+  </div>
+</div>
+
+<main class="wrap">
+  <section>
+    <div class="proj-grid" data-reveal>
+      <div class="proj-card">
+        <div class="proj-window">
+          <span class="tag-status">● live</span>
+          <div class="row"><b>service:</b> hotel-mgmt</div>
+          <div class="row"><b>module:</b> orders, billing, inventory</div>
+          <div class="row"><b>uptime:</b> 99.8%</div>
+        </div>
+        <div class="proj-body">
+          <h3>Delicious Food</h3>
+          <p>A complete hotel &amp; restaurant management system — order-taking, billing, kitchen workflow, and stock control in one platform.</p>
+          <div class="proj-tags"><span>PHP</span><span>MySQL</span><span>Bootstrap</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-window">
+          <span class="tag-status">● live</span>
+          <div class="row"><b>service:</b> naps-payments</div>
+          <div class="row"><b>module:</b> citizen-billing</div>
+          <div class="row"><b>uptime:</b> 99.9%</div>
+        </div>
+        <div class="proj-body">
+          <h3>HIMS</h3>
+          <p>Naps Payment Information Management System — built with Laravel to handle citizen payment records securely and reliably.</p>
+          <div class="proj-tags"><span>Laravel</span><span>MySQL</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-window">
+          <span class="tag-status">● live</span>
+          <div class="row"><b>service:</b> naps-citizen</div>
+          <div class="row"><b>auth:</b> JWT secured</div>
+          <div class="row"><b>uptime:</b> 99.9%</div>
+        </div>
+        <div class="proj-body">
+          <h3>Naps Citizen System</h3>
+          <p>A citizen-facing platform for public service access, secured end-to-end with JWT authentication.</p>
+          <div class="proj-tags"><span>PHP</span><span>JWT</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-window">
+          <span class="tag-status">● live</span>
+          <div class="row"><b>service:</b> afya-connect</div>
+          <div class="row"><b>module:</b> healthcare</div>
+          <div class="row"><b>uptime:</b> 99.7%</div>
+        </div>
+        <div class="proj-body">
+          <h3>Afya-Connect</h3>
+          <p>A digital healthcare connection platform, demo-hosted and actively evolving.</p>
+          <div class="proj-tags"><span>PHP</span><span>MySQL</span></div>
+          <div style="margin-top:14px;"><a href="http://afya-connect.onlinewebshop.net" target="_blank" rel="noopener" style="font-family:var(--mono); font-size:0.8rem; color:var(--signal);">View live demo ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta-banner" data-reveal>
+      <div>
+        <h3>Want your project featured here next?</h3>
+        <p>Let's build something worth showing off.</p>
+      </div>
+      <a href="contact.html" class="btn btn-primary">Start a project →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="Likivon logo">LIKIVON SYSTEMS</a>
+    <div class="foot-links">
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="copy">© 2026 Likivon Systems</div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

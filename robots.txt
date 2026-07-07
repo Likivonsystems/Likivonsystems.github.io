@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://likivonsystems.github.io/sitemap.xml

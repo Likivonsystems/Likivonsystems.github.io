@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Likivon Systems | Engineering Future Solutions</title>
+<meta name="description" content="Likivon Systems - Leading Software Engineering firm based in Dar es Salaam, Tanzania. Specializing in Enterprise Systems, Mobile Apps, and Cybersecurity solutions.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2337D67A%22>◆</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A0E13;
+    --panel:#111820;
+    --panel-2:#161f29;
+    --line:#22303c;
+    --signal:#39D67A;
+    --signal-dim:#1f6b42;
+    --amber:#F0A63A;
+    --text:#E7ECEF;
+    --muted:#7C8B99;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+
+  /* background grid texture */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:0.15;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .wrap{max-width:1160px; margin:0 auto; padding:0 24px; position:relative; z-index:1;}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,14,19,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px; max-width:1160px; margin:0 auto;
+  }
+  .logo{
+    font-family:var(--mono); font-weight:800; font-size:1.15rem;
+    letter-spacing:0.5px; color:var(--text);
+    display:flex; align-items:center; gap:8px;
+  }
+  .logo .dot{color:var(--signal); font-size:1.4rem; line-height:0;}
+  .navlinks{display:flex; gap:32px; font-size:0.92rem; font-family:var(--mono);}
+  .navlinks a{color:var(--muted); transition:color .2s;}
+  .navlinks a:hover{color:var(--signal);}
+  .navlinks a.ext{color:var(--amber);}
+  .burger{display:none; background:none; border:none; color:var(--text); font-size:1.5rem; cursor:pointer;}
+
+  @media (max-width: 760px){
+    .navlinks{
+      position:fixed; top:64px; left:0; right:0;
+      background:var(--panel); border-bottom:1px solid var(--line);
+      flex-direction:column; padding:20px 24px; gap:18px;
+      transform:translateY(-150%); transition:transform .3s ease;
+    }
+    .navlinks.open{transform:translateY(0);}
+    .burger{display:block;}
+  }
+
+  /* HERO */
+  .hero{
+    padding:100px 0 80px;
+    position:relative;
+  }
+  .eyebrow{
+    font-family:var(--mono); color:var(--signal); font-size:0.85rem;
+    letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow .pulse{
+    width:8px; height:8px; border-radius:50%; background:var(--signal);
+    box-shadow:0 0 0 0 rgba(57,214,122,0.7);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(57,214,122,0.6);}
+    70%{box-shadow:0 0 0 10px rgba(57,214,122,0);}
+    100%{box-shadow:0 0 0 0 rgba(57,214,122,0);}
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;
+  }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+
+  h1{
+    font-family:var(--mono); font-weight:800; font-size:clamp(2.1rem, 5vw, 3.4rem);
+    line-height:1.12; letter-spacing:-0.5px; color:var(--text);
+  }
+  h1 .accent{color:var(--signal);}
+  .lede{
+    margin-top:22px; color:var(--muted); font-size:1.08rem; max-width:52ch;
+  }
+  .cta-row{margin-top:34px; display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:0.9rem; padding:14px 24px;
+    border-radius:2px; border:1px solid var(--line); transition:all .2s;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{background:var(--signal); color:#04140B; border-color:var(--signal); font-weight:700;}
+  .btn-primary:hover{background:#4FE68C;}
+  .btn-ghost{color:var(--text);}
+  .btn-ghost:hover{border-color:var(--signal); color:var(--signal);}
+
+  /* terminal */
+  .terminal{
+    background:var(--panel); border:1px solid var(--line); border-radius:8px;
+    overflow:hidden; box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+  }
+  .terminal-bar{
+    display:flex; align-items:center; gap:8px; padding:12px 16px;
+    background:var(--panel-2); border-bottom:1px solid var(--line);
+  }
+  .terminal-bar span{width:11px; height:11px; border-radius:50%; display:inline-block;}
+  .terminal-bar span:nth-child(1){background:#ff5f56;}
+  .terminal-bar span:nth-child(2){background:#ffbd2e;}
+  .terminal-bar span:nth-child(3){background:#27c93f;}
+  .terminal-title{margin-left:8px; font-family:var(--mono); font-size:0.78rem; color:var(--muted);}
+  .terminal-body{
+    padding:22px 20px; font-family:var(--mono); font-size:0.86rem; min-height:230px;
+    color:var(--signal);
+  }
+  .terminal-body .line{margin-bottom:9px; color:var(--muted);}
+  .terminal-body .line .ok{color:var(--signal);}
+  .terminal-body .line .path{color:var(--amber);}
+  .cursor{display:inline-block; width:8px; height:16px; background:var(--signal); vertical-align:middle; animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  /* SECTION generic */
+  section{padding:90px 0;}
+  .section-head{margin-bottom:48px; max-width:640px;}
+  .section-tag{font-family:var(--mono); color:var(--amber); font-size:0.82rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px;}
+  h2{font-family:var(--mono); font-size:clamp(1.6rem,3vw,2.3rem); font-weight:700; letter-spacing:-0.3px;}
+  .section-sub{color:var(--muted); margin-top:14px; font-size:1.02rem;}
+
+  /* SERVICES */
+  .services-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  @media (max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.services-grid{grid-template-columns:1fr;}}
+  .service{
+    background:var(--panel); padding:32px 26px; transition:background .25s;
+  }
+  .service:hover{background:var(--panel-2);}
+  .service-icon{width:34px; height:34px; margin-bottom:20px; color:var(--signal);}
+  .service h3{font-family:var(--mono); font-size:1.02rem; margin-bottom:10px; font-weight:600;}
+  .service p{color:var(--muted); font-size:0.92rem;}
+  .service .stack{margin-top:14px; font-family:var(--mono); font-size:0.72rem; color:var(--signal-dim); background:rgba(57,214,122,0.08); display:inline-block; padding:4px 8px; border-radius:3px;}
+
+  /* PORTFOLIO */
+  .proj-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media (max-width:900px){.proj-grid{grid-template-columns:1fr;}}
+  .proj-card{
+    border:1px solid var(--line); border-radius:8px; overflow:hidden;
+    background:var(--panel); transition:transform .25s, border-color .25s;
+  }
+  .proj-card:hover{transform:translateY(-4px); border-color:var(--signal-dim);}
+  .proj-window{
+    background:var(--panel-2); padding:20px; font-family:var(--mono); font-size:0.78rem;
+    border-bottom:1px solid var(--line); min-height:130px; position:relative;
+  }
+  .proj-window .tag-status{
+    position:absolute; top:16px; right:16px; font-size:0.65rem; padding:3px 8px;
+    border:1px solid var(--signal-dim); color:var(--signal); border-radius:3px;
+  }
+  .proj-window .row{color:var(--muted); margin-bottom:6px;}
+  .proj-window .row b{color:var(--text); font-weight:500;}
+  .proj-body{padding:22px;}
+  .proj-body h3{font-family:var(--mono); font-size:1.05rem; margin-bottom:8px;}
+  .proj-body p{color:var(--muted); font-size:0.9rem;}
+  .proj-tags{display:flex; gap:8px; margin-top:14px; flex-wrap:wrap;}
+  .proj-tags span{font-family:var(--mono); font-size:0.7rem; color:var(--amber); border:1px solid var(--line); padding:3px 8px; border-radius:3px;}
+
+  /* ABOUT */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
+  @media (max-width:900px){.about-grid{grid-template-columns:1fr; gap:36px;}}
+  .about-grid p{color:var(--muted); margin-bottom:16px;}
+  .about-grid strong{color:var(--text);}
+  .values{list-style:none; margin-top:24px;}
+  .values li{
+    display:flex; gap:14px; padding:16px 0; border-bottom:1px solid var(--line);
+    font-size:0.95rem;
+  }
+  .values li:last-child{border-bottom:none;}
+  .values b{font-family:var(--mono); color:var(--signal); min-width:90px;}
+
+  .stats-row{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px;}
+  .stat{background:var(--panel); padding:28px; text-align:center;}
+  .stat .num{font-family:var(--mono); font-size:2.1rem; font-weight:800; color:var(--signal);}
+  .stat .label{color:var(--muted); font-size:0.8rem; margin-top:6px; font-family:var(--mono); letter-spacing:1px; text-transform:uppercase;}
+
+  /* CONTACT */
+  .contact-box{
+    border:1px solid var(--line); border-radius:8px; padding:48px;
+    background:linear-gradient(180deg, var(--panel), var(--panel-2));
+    text-align:center;
+  }
+  .contact-box h2{margin-bottom:14px;}
+  .contact-box p{color:var(--muted); max-width:50ch; margin:0 auto 30px;}
+  .contact-links{display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-top:10px;}
+  .contact-links a{
+    font-family:var(--mono); font-size:0.88rem; color:var(--text); border:1px solid var(--line);
+    padding:12px 20px; border-radius:4px; transition:all .2s;
+  }
+  .contact-links a:hover{border-color:var(--signal); color:var(--signal);}
+
+  footer{
+    border-top:1px solid var(--line); padding:36px 0; margin-top:0;
+  }
+  .foot-grid{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  .foot-grid .brand{font-family:var(--mono); font-weight:700;}
+  .foot-grid .loc{color:var(--muted); font-size:0.85rem;}
+  .foot-grid .copy{color:var(--muted); font-size:0.8rem; font-family:var(--mono);}
+
+  ::selection{background:var(--signal); color:#04140B;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo"><span class="dot">◆</span>LIKIVON<span style="color:var(--muted); font-weight:500;">.sys</span></div>
+    <button class="burger" id="burger" aria-label="Fungua menu">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a href="#services">Services</a>
+      <a href="#projects">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="ext" href="http://afya-connect.onlinewebshop.net" target="_blank" rel="noopener">Afya-Connect ↗</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow"><span class="pulse"></span>SYSTEM STATUS: OPERATIONAL — DAR ES SALAAM, TZ</div>
+        <h1>Engineering the <span class="accent">Digital Future</span> of East Africa</h1>
+        <p class="lede">Likivon Systems delivers high-performance software — enterprise-grade backends, secure mobile experiences, and defensible infrastructure. We turn complex problems into elegant, working systems.</p>
+        <div class="cta-row">
+          <a href="#projects" class="btn btn-primary">View Portfolio →</a>
+          <a href="#contact" class="btn btn-ghost">Start a Project</a>
+        </div>
+      </div>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span></span><span></span><span></span>
+          <span class="terminal-title">likivon@systems: ~/deploy</span>
+        </div>
+        <div class="terminal-body" id="termBody"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-head">
+      <div class="section-tag">// what we build</div>
+      <h2>Premium Tech Solutions</h2>
+      <p class="section-sub">We don't just write code — we engineer outcomes.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M8 4v5"/></svg>
+        <h3>Enterprise Systems</h3>
+        <p>Complex ERPs and automated business workflows built on scalable backends.</p>
+        <span class="stack">Laravel · FastAPI</span>
+      </div>
+      <div class="service">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg>
+        <h3>High-End Mobile Apps</h3>
+        <p>Seamless Android experiences people enjoy interacting with every day.</p>
+        <span class="stack">Java · Flutter</span>
+      </div>
+      <div class="service">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        <h3>Cyber Defense</h3>
+        <p>Securing your digital borders with advanced auth and forensic audits.</p>
+        <span class="stack">JWT · Audits</span>
+      </div>
+      <div class="service">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+        <h3>Cloud &amp; Hosting</h3>
+        <p>Expert server management and DNS optimization — systems that stay online.</p>
+        <span class="stack">CCNA-level Ops</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="projects">
+    <div class="section-head">
+      <div class="section-tag">// recent deployments</div>
+      <h2>Our Recent Projects</h2>
+      <p class="section-sub">A sample of systems we've shipped for clients across Tanzania.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-window">
+          <span class="tag-status">● live</span>
+          <div class="row"><b>service:</b> hotel-mgmt</div>
+          <div class="row"><b>module:</b> orders, billing</div>
+          <div class="row"><b>uptime:</b> 99.8%</div>
+        </div>
+        <div class="proj-body">
+          <h3>Delicious Food</h3>
+          <p>A comprehensive hotel &amp; restaurant management system covering orders, billing and inventory.</p>
+          <div class="proj-tags"><span>PHP</span><span>MySQL</span></div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-window">
+          <span class="tag-status">● live</span>
+          <div class="row"><b>service:</b> naps-payments</div>
+          <div class="row"><b>module:</b> citizen-billing</div>
+          <div class="row"><b>uptime:</b> 99.9%</div>
+        </div>
+        <div class="proj-body">
+          <h3>HIMS</h3>
+          <p>Naps Payment Information Management System built with Laravel for citizen payments.</p>
+          <div class="proj-tags"><span>Laravel</span><span>MySQL</span></div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-window">
+          <span class="tag-status">● live</span>
+          <div class="row"><b>service:</b> naps-citizen</div>
+          <div class="row"><b>auth:</b> JWT secured</div>
+          <div class="row"><b>uptime:</b> 99.9%</div>
+        </div>
+        <div class="proj-body">
+          <h3>Naps Citizen System</h3>
+          <p>Secure citizen-facing system built with PHP and JWT authentication.</p>
+          <div class="proj-tags"><span>PHP</span><span>JWT</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-head">
+      <div class="section-tag">// who we are</div>
+      <h2>The Likivon Legacy</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>Born in the heart of <strong>Dar es Salaam</strong>, Likivon Systems is not just a software startup — it's a movement to digitize East Africa.</p>
+        <p>Founded by <strong>Hemedi Mwarami</strong>, we combine deep academic knowledge in Software Engineering with raw industry passion, building systems for healthcare, education, and enterprise.</p>
+        <div class="stats-row">
+          <div class="stat"><div class="num">50+</div><div class="label">Projects Built</div></div>
+          <div class="stat"><div class="num">99%</div><div class="label">System Uptime</div></div>
+          <div class="stat"><div class="num">24/7</div><div class="label">Expert Support</div></div>
+        </div>
+      </div>
+      <ul class="values">
+        <li><b>Vision</b><span>To be the Silicon Valley of Tanzania.</span></li>
+        <li><b>Mission</b><span>Turning complex human problems into simple digital scripts.</span></li>
+        <li><b>Values</b><span>Security, Scalability, and Speed.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-box">
+      <h2>Let's build something secure.</h2>
+      <p>Have a system to build, an app to ship, or infrastructure to secure? Tell us about it.</p>
+      <div class="contact-links">
+        <a href="mailto:info@likivonsystems.com">✉ info@likivonsystems.com</a>
+        <a href="http://afya-connect.onlinewebshop.net" target="_blank" rel="noopener">Afya-Connect Demo ↗</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="brand">LIKIVON SYSTEMS</div>
+    <div class="loc">Dar es Salaam, Tanzania · P.O Box 1507</div>
+    <div class="copy">© 2026 Likivon Systems. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // mobile nav
+  const burger = document.getElementById('burger');
+  const navlinks = document.getElementById('navlinks');
+  burger.addEventListener('click', () => navlinks.classList.toggle('open'));
+  navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+
+  // terminal boot sequence
+  const lines = [
+    { text: '$ likivon deploy --env=production', cls: '' },
+    { text: '> resolving dependencies... ', ok: 'done' },
+    { text: '> compiling secure modules (JWT, Laravel)... ', ok: 'ok' },
+    { text: '> provisioning cloud infrastructure... ', ok: 'ok' },
+    { text: '> running security audit... ', ok: '0 vulnerabilities' },
+    { text: '> status: ', ok: 'ALL SYSTEMS OPERATIONAL' },
+    { text: '$ _' , raw: true}
+  ];
+  const term = document.getElementById('termBody');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function renderLine(l){
+    const div = document.createElement('div');
+    div.className = 'line';
+    if(l.raw){ div.innerHTML = l.text.replace('_','<span class="cursor"></span>'); return div; }
+    div.innerHTML = l.text + (l.ok ? '<span class="ok path">'+l.ok+'</span>' : '');
+    return div;
+  }
+
+  if(reduce){
+    lines.forEach(l => term.appendChild(renderLine(l)));
+  } else {
+    let i = 0;
+    function step(){
+      if(i < lines.length){
+        term.appendChild(renderLine(lines[i]));
+        i++;
+        setTimeout(step, i === lines.length ? 0 : 450);
+      }
+    }
+    step();
+  }
+</script>
+
+</body>
+</html>
